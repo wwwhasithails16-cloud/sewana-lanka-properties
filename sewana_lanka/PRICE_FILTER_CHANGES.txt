@@ -1,0 +1,36 @@
+PRICE FILTER AND LISTING ERROR FIX
+==================================
+
+Changed files
+-------------
+1. index.php
+   - Added one simple Price range dropdown directly after Location.
+   - Removed invalid nested anchor markup from the header logo.
+
+2. assets/style.css
+   - Matched the Price range styling to the Location dropdown.
+
+3. assets/app.js
+   - Converts the selected price range into min_price and max_price API values.
+   - Builds a clean API URL when no filters are selected.
+
+4. api/properties.php
+   - Validates property type and price input.
+   - Supports older properties tables that do not yet contain the new filter
+     columns, preventing the complete listing-load failure.
+   - Filters legacy formatted prices such as "Rs. 25,000,000" numerically.
+
+XAMPP setup
+-----------
+1. Copy the project folder to C:\xampp\htdocs\
+2. Start Apache and MySQL.
+3. For a fresh database, import schema.sql in phpMyAdmin.
+4. For an existing/older database, import update_database.sql once.
+5. Open http://localhost/sewana_lanka_district_media_status/
+FILTER BUG FIX (2026-08-18)
+---------------------------
+- The browser now sends price_range as one value, including open-ended ranges.
+- The API validates and expands price_range, and still supports old min/max links.
+- Property types are normalized before comparison.
+- Old formatted prices are backfilled into price_amount automatically.
+- app.js is cache-versioned so browsers load the corrected filter immediately.

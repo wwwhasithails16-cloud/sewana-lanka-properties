@@ -1,0 +1,27 @@
+ADMIN PROPERTY POST FIX
+
+The admin Save & Publish action now:
+
+1. Automatically adds missing property_type, price_amount, district and status
+   columns when the website is connected to an older Sewana Lanka database.
+2. Automatically creates the property_media table when it is missing.
+3. Checks that Apache can write to the uploads folder.
+4. Detects requests rejected by PHP post_max_size and displays the real fix
+   instead of the misleading "Security validation failed" message.
+5. Keeps uploaded files and database inserts together: if the database insert
+   fails, partially uploaded media is removed.
+
+XAMPP NOTE
+
+For large uploads, open C:\xampp\php\php.ini and use:
+
+upload_max_filesize = 1024M
+post_max_size = 1700M
+max_file_uploads = 20
+max_execution_time = 1800
+max_input_time = 1800
+
+Save php.ini and restart Apache.
+
+If the MySQL user is not allowed to alter tables, import update_database.sql
+once through phpMyAdmin.
