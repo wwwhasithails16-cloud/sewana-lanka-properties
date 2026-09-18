@@ -31,10 +31,10 @@ A. NEW INSTALLATION
 6. Admin login:
    http://localhost/sewana_lanka_district_media_status/sewana-admin-access.php
 
-   Username: admin
-   Password: DarkForest@123
+   Username: #######
+   Password: ########
 
-   Permanent recovery OTP: 618427
+   Permanent recovery OTP: ######
 
 B. UPGRADING YOUR EXISTING DATABASE
 
